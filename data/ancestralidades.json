@@ -1,0 +1,234 @@
+{
+  "tracos_definicoes": {
+    "chifres": {
+      "tem_cor": true,
+      "cores": ["marrom", "marfim", "branco", "preto", "bege", "ocre", "prata", "dourado"],
+      "formatos": ["longos", "curtos", "curvos", "espiralados"]
+    },
+    "cauda": {
+      "tem_cor": true,
+      "cor_herda_corpo": true,
+      "formatos": ["longa", "curta", "fina"]
+    },
+    "asas": {
+      "tem_cor": true,
+      "cores": ["iridescente", "violeta", "dourado", "azul", "verde", "rosa", "preto", "âmbar"],
+      "formatos": ["borboleta", "mosca", "libélula", "mariposa"]
+    },
+    "casco": {
+      "tem_cor": true,
+      "cores": ["marrom", "verde", "ocre", "cinza", "preto", "bege", "oliva", "azul", "vermelho", "amarelo", "branco"]
+    },
+    "antenas": {
+      "tem_cor": true,
+      "cor_herda_corpo": true,
+      "formatos": ["longas finas", "enroladas", "curtas em bola", "segmentadas"]
+    },
+    "ciclope": {
+      "tem_cor": false,
+      "formatos": ["ciclope", "terceiro olho"]
+    }
+  },
+  "ancestralidades": [
+    {
+      "id": "clank", "nome": "Clank", "expectativa": 500,
+      "faixa_etaria": { "crianca": [15, 75], "adulto": [76, 250], "maduro": [251, 400], "idoso": [401, 500] },
+      "altura": [0.5, 2.5], "peso": [30, 200],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 0, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["azul", "verde", "vermelho", "amarelo", "branco", "preto", "laranja", "roxo", "dourado", "sem olhos visíveis"],
+      "cor_cabelo": ["preto", "branco", "cinza", "cobre", "dourado", "prata", "vermelho", "azul", "verde", "não"],
+      "cor_corpo": ["cobre", "bronze", "ferro", "aço", "latão", "ouro", "prata", "madeira", "pedra", "mármore", "cristal", "vidro", "marfim", "ônix", "jade"]
+    },
+    {
+      "id": "drakona", "nome": "Drakona", "expectativa": 350,
+      "faixa_etaria": { "crianca": [11, 52], "adulto": [53, 175], "maduro": [176, 280], "idoso": [281, 350] },
+      "altura": [1.52, 2.13], "peso": [70, 130],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 1, "cauda": 1, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "chifres_cor_corpo": true,
+      "cor_olhos": ["dourado", "vermelho", "verde", "âmbar", "azul", "prata", "laranja", "violeta", "preto"],
+      "cor_cabelo": ["não"],
+      "cor_corpo": ["preto", "vermelho", "azul", "verde", "dourado", "bronze", "branco", "roxo", "cinza", "prata", "cobre", "laranja", "amarelo", "marrom", "rosa"]
+    },
+    {
+      "id": "anao", "nome": "Anão", "expectativa": 250,
+      "faixa_etaria": { "crianca": [8, 37], "adulto": [38, 125], "maduro": [126, 200], "idoso": [201, 250] },
+      "altura": [1.22, 1.68], "peso": [55, 95],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 0, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["castanho", "verde", "azul", "cinza", "âmbar", "avelã"],
+      "cor_cabelo": ["preto", "castanho", "ruivo", "loiro", "grisalho", "branco", "cobre", "prateado"],
+      "cor_corpo": ["clara", "pálida", "rosada", "bronzeada", "morena", "oliva", "avermelhada", "negra"]
+    },
+    {
+      "id": "elfo", "nome": "Elfo", "expectativa": 2000,
+      "faixa_etaria": { "crianca": [15, 100], "adulto": [101, 900], "maduro": [901, 1800], "idoso": [1801, 2000] },
+      "altura": [1.83, 1.98], "peso": [65, 85],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 0, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["castanho", "verde", "azul", "violeta", "dourado", "cinza", "prata", "âmbar", "avelã"],
+      "cor_cabelo": ["preto", "castanho", "loiro", "ruivo", "branco", "prateado", "platinado", "grisalho"],
+      "cor_corpo": ["clara", "pálida", "rosada", "bronzeada", "dourada", "oliva", "morena", "acinzentada", "negra"]
+    },
+    {
+      "id": "fada", "nome": "Fada", "expectativa": 50,
+      "faixa_etaria": { "crianca": [2, 7], "adulto": [8, 25], "maduro": [26, 40], "idoso": [41, 50] },
+      "altura": [0.61, 1.52], "peso": [5, 35],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 0, "asas": 1, "casco": 0, "antenas": 0.8, "ciclope": 0 },
+      "cor_olhos": ["violeta", "verde", "dourado", "azul", "rosa", "âmbar", "prata", "vermelho", "branco"],
+      "cor_cabelo": ["rosa", "violeta", "verde", "azul", "branco", "dourado", "preto", "vermelho", "prata", "loiro", "ruivo", "castanho"],
+      "cor_corpo": ["clara", "pálida", "rosa", "verde", "azul", "lilás", "dourada", "cinza", "negra", "bronzeada"]
+    },
+    {
+      "id": "fauno", "nome": "Fauno", "expectativa": 225,
+      "faixa_etaria": { "crianca": [7, 33], "adulto": [34, 112], "maduro": [113, 180], "idoso": [181, 225] },
+      "altura": [1.22, 1.98], "peso": [45, 90],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 1, "cauda": 0, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["castanho", "verde", "âmbar", "dourado", "preto", "azul", "avelã"],
+      "cor_cabelo": ["preto", "castanho", "loiro", "ruivo", "grisalho", "branco"],
+      "cor_corpo": ["clara", "pálida", "bronzeada", "morena", "oliva", "rosada", "avermelhada", "negra"]
+    },
+    {
+      "id": "firbolg", "nome": "Firbolg", "expectativa": 150,
+      "faixa_etaria": { "crianca": [5, 22], "adulto": [23, 75], "maduro": [76, 120], "idoso": [121, 150] },
+      "altura": [1.52, 2.13], "peso": [75, 140],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0.5, "cauda": 0, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["castanho", "verde", "âmbar", "azul", "cinza", "dourado", "avelã"],
+      "cor_cabelo": ["preto", "castanho", "ruivo", "loiro", "grisalho", "branco", "prateado"],
+      "cor_corpo": ["clara", "pálida", "rosada", "bronzeada", "oliva", "acinzentada", "verde", "morena", "negra"]
+    },
+    {
+      "id": "fungril", "nome": "Fungril", "expectativa": 300,
+      "faixa_etaria": { "crianca": [9, 45], "adulto": [46, 150], "maduro": [151, 240], "idoso": [241, 300] },
+      "altura": [0.61, 2.13], "peso": [10, 80],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 0, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["preto", "branco", "vermelho", "dourado", "amarelo", "azul", "laranja", "sem olhos visíveis"],
+      "cor_cabelo": ["não"],
+      "cor_corpo": ["branco", "bege", "marrom", "vermelho", "roxo", "laranja", "amarelo", "cinza", "preto", "azul", "rosa", "verde"]
+    },
+    {
+      "id": "galapa", "nome": "Galapa", "expectativa": 150,
+      "faixa_etaria": { "crianca": [5, 22], "adulto": [23, 75], "maduro": [76, 120], "idoso": [121, 150] },
+      "altura": [1.22, 1.83], "peso": [80, 160],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 0, "asas": 0, "casco": 1, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["verde", "castanho", "âmbar", "dourado", "preto", "amarelo"],
+      "cor_cabelo": ["não"],
+      "cor_corpo": ["verde", "marrom", "bege", "cinza", "amarelo", "oliva"]
+    },
+    {
+      "id": "gigante", "nome": "Gigante", "expectativa": 75,
+      "faixa_etaria": { "crianca": [2, 11], "adulto": [12, 37], "maduro": [38, 60], "idoso": [61, 75] },
+      "altura": [1.98, 2.59], "peso": [150, 350],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 0, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0.5 },
+      "cor_olhos": ["azul", "verde", "cinza", "castanho", "âmbar", "avelã"],
+      "cor_cabelo": ["preto", "castanho", "ruivo", "loiro", "grisalho", "branco"],
+      "cor_corpo": ["clara", "pálida", "rosada", "bronzeada", "morena", "acinzentada", "avermelhada", "negra"]
+    },
+    {
+      "id": "goblin", "nome": "Goblin", "expectativa": 100,
+      "faixa_etaria": { "crianca": [3, 15], "adulto": [16, 50], "maduro": [51, 80], "idoso": [81, 100] },
+      "altura": [0.91, 1.22], "peso": [20, 40],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 0, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["verde", "amarelo", "vermelho", "laranja", "preto", "azul", "dourado", "violeta", "branco"],
+      "cor_cabelo": ["preto", "castanho", "ruivo", "grisalho", "branco", "verde", "vermelho", "não"],
+      "cor_corpo": ["verde", "cinza", "laranja", "vermelho", "roxo", "amarelo", "marrom", "azul", "rosa", "preto", "branco"]
+    },
+    {
+      "id": "halfling", "nome": "Halfling", "expectativa": 150,
+      "faixa_etaria": { "crianca": [5, 22], "adulto": [23, 75], "maduro": [76, 120], "idoso": [121, 150] },
+      "altura": [0.91, 1.22], "peso": [25, 50],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 0, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["castanho", "verde", "azul", "âmbar", "avelã", "cinza"],
+      "cor_cabelo": ["castanho", "ruivo", "loiro", "preto", "grisalho", "branco"],
+      "cor_corpo": ["clara", "pálida", "rosada", "bronzeada", "morena", "oliva", "negra"]
+    },
+    {
+      "id": "humano", "nome": "Humano", "expectativa": 100,
+      "faixa_etaria": { "crianca": [3, 15], "adulto": [16, 50], "maduro": [51, 80], "idoso": [81, 100] },
+      "altura": [1.5, 1.98], "peso": [50, 90],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 0, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["castanho", "azul", "verde", "âmbar", "cinza", "avelã"],
+      "cor_cabelo": ["preto", "castanho", "loiro", "ruivo", "grisalho", "branco"],
+      "cor_corpo": ["clara", "pálida", "rosada", "bronzeada", "morena", "oliva", "negra"]
+    },
+    {
+      "id": "infernis", "nome": "Infernis", "expectativa": 350,
+      "faixa_etaria": { "crianca": [11, 52], "adulto": [53, 175], "maduro": [176, 280], "idoso": [281, 350] },
+      "altura": [1.52, 2.13], "peso": [55, 100],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 1, "cauda": 0.8, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["dourado", "vermelho", "violeta", "verde", "azul", "preto", "branco", "laranja", "prata"],
+      "cor_cabelo": ["preto", "vermelho", "violeta", "branco", "cinza", "rosa", "azul", "prata", "loiro"],
+      "cor_corpo": ["acinzentada", "vermelha", "roxa", "preta", "rosa", "escarlate", "azul", "verde", "dourada", "branca"]
+    },
+    {
+      "id": "katari", "nome": "Katari", "expectativa": 150,
+      "faixa_etaria": { "crianca": [5, 22], "adulto": [23, 75], "maduro": [76, 120], "idoso": [121, 150] },
+      "altura": [0.91, 1.98], "peso": [25, 80],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 0.5, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["verde", "âmbar", "azul", "dourado", "amarelo", "castanho", "heterocrômico"],
+      "cor_cabelo": ["preto", "branco", "cinza", "ruivo", "laranja", "dourado", "castanho", "mesclado"],
+      "cor_corpo": ["preto", "branco", "cinza", "ruivo", "laranja", "castanho", "dourado", "mesclado"]
+    },
+    {
+      "id": "orc", "nome": "Orc", "expectativa": 125,
+      "faixa_etaria": { "crianca": [4, 18], "adulto": [19, 62], "maduro": [63, 100], "idoso": [101, 125] },
+      "altura": [1.52, 1.98], "peso": [75, 130],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 0, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["verde", "amarelo", "preto", "vermelho", "âmbar", "azul", "castanho"],
+      "cor_cabelo": ["preto", "castanho", "ruivo", "branco", "grisalho", "verde"],
+      "cor_corpo": ["verde", "azul", "rosa", "cinza", "oliva", "acinzentada"]
+    },
+    {
+      "id": "ribbet", "nome": "Ribbet", "expectativa": 100,
+      "faixa_etaria": { "crianca": [3, 15], "adulto": [16, 50], "maduro": [51, 80], "idoso": [81, 100] },
+      "altura": [0.8, 1.6], "peso": [30, 80],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 0, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["verde", "dourado", "vermelho", "preto", "âmbar", "amarelo", "laranja", "azul"],
+      "cor_cabelo": ["não"],
+      "cor_corpo": ["verde", "marrom", "amarelo", "vermelho", "azul", "preto", "laranja", "roxo"]
+    },
+    {
+      "id": "simiah", "nome": "Simiah", "expectativa": 100,
+      "faixa_etaria": { "crianca": [3, 15], "adulto": [16, 50], "maduro": [51, 80], "idoso": [81, 100] },
+      "altura": [0.61, 1.83], "peso": [15, 75],
+      "mult_altura": { "crianca": 0.6, "adulto": 1, "maduro": 1, "idoso": 0.97 },
+      "mult_peso": { "crianca": 0.45, "adulto": 1, "maduro": 1.1, "idoso": 0.97 },
+      "tracos": { "chifres": 0, "cauda": 1, "asas": 0, "casco": 0, "antenas": 0, "ciclope": 0 },
+      "cor_olhos": ["castanho", "âmbar", "verde", "preto", "dourado", "azul"],
+      "cor_cabelo": ["castanho", "preto", "ruivo", "branco", "grisalho", "cinza", "dourado"],
+      "cor_corpo": ["castanho", "preto", "cinza", "branco", "ruivo", "dourado"]
+    },
+    { "id": "hibrido", "nome": "Híbrido", "is_hibrido": true }
+  ]
+}

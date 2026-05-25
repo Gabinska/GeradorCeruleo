@@ -1,0 +1,369 @@
+:root {
+  /* Paleta base */
+  --creme-pergaminho: #F5F0E8;
+  --marfim-quente: #EDE4D3;
+  --carvao-ceruleano: #1F2A2E;
+  --cinza-nevoa: #8A9199;
+  --ceruleo-imperial: #2E5C94;
+  --ceruleo-profundo: #1B3D6B;
+  --ceu-allavyn: #7BA4D1;
+  --ouro-pacto: #C8960C;
+  --ouro-envelhecido: #8B6914;
+
+  /* Tokens semânticos - TEMA CLARO (default) */
+  --bg-pagina: var(--creme-pergaminho);
+  --bg-card: var(--marfim-quente);
+  --texto-principal: var(--carvao-ceruleano);
+  --texto-secundario: var(--cinza-nevoa);
+  --primaria: var(--ceruleo-imperial);
+  --primaria-hover: var(--ceruleo-profundo);
+  --acento: var(--ouro-pacto);
+  --acento-secundario: var(--ouro-envelhecido);
+  --foco-outline: var(--ceu-allavyn);
+  --borda-suave: rgba(31, 42, 46, 0.12);
+  --hover-suave: rgba(46, 92, 148, 0.08);
+  --hover-extra-suave: rgba(46, 92, 148, 0.06);
+  --travado-bg: rgba(200, 150, 12, 0.12);
+  --rotulo-bg: rgba(0, 0, 0, 0.02);
+}
+
+/* TEMA ESCURO — "Pergaminho à noite" */
+[data-tema="escuro"] {
+  --bg-pagina: #0E1B2A;
+  --bg-card: #182A40;
+  --texto-principal: #E8DFCC;
+  --texto-secundario: #8FA3B5;
+  --primaria: #7BA4D1;
+  --primaria-hover: #A0BCDF;
+  --acento: #E0AC1F;
+  --acento-secundario: #C8960C;
+  --foco-outline: #E0AC1F;
+  --borda-suave: rgba(232, 223, 204, 0.14);
+  --hover-suave: rgba(123, 164, 209, 0.14);
+  --hover-extra-suave: rgba(123, 164, 209, 0.08);
+  --travado-bg: rgba(224, 172, 31, 0.18);
+  --rotulo-bg: rgba(255, 255, 255, 0.04);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  color: var(--texto-principal);
+  background: var(--bg-pagina);
+  line-height: 1.4;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px 16px;
+  border-bottom: 1px solid var(--borda-suave);
+}
+
+.titulo-app {
+  font-family: 'Uncial Antiqua', serif;
+  font-weight: 400;
+  font-size: 32px;
+  color: var(--primaria);
+  margin: 0;
+}
+
+.botao-tema {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  background: var(--cinza-nevoa);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+}
+.botao-tema:hover { opacity: 0.85; }
+
+[data-tema="escuro"] .botao-tema { background: var(--primaria); }
+
+.toggle-bola {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+[data-tema="escuro"] .toggle-bola {
+  transform: translateX(24px);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* PAINEL DE SAÍDA */
+.painel-saida {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-npc {
+  background: var(--bg-card);
+  border: 1px solid var(--borda-suave);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.card-npc .linha {
+  display: grid;
+  grid-template-columns: 130px 1fr 40px;
+  border-bottom: 1px solid var(--borda-suave);
+  align-items: stretch;
+}
+
+.card-npc .linha:last-child { border-bottom: none; }
+
+.card-npc .rotulo {
+  font-family: 'Philosopher', serif;
+  font-weight: 700;
+  padding: 12px 16px;
+  background: var(--rotulo-bg);
+  display: flex;
+  align-items: center;
+}
+
+.card-npc .valor {
+  padding: 12px 16px;
+  color: var(--texto-principal);
+  display: flex;
+  align-items: center;
+  min-height: 0;
+}
+
+.cadeado {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, transform 0.1s;
+  color: var(--texto-principal);
+}
+
+.cadeado:hover { background: var(--hover-suave); }
+.cadeado:active { transform: scale(0.92); }
+.cadeado.travado { background: var(--travado-bg); }
+
+.botao-gerar {
+  font-family: 'Philosopher', serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--bg-pagina);
+  background: var(--primaria);
+  border: none;
+  border-radius: 4px;
+  padding: 16px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.botao-gerar:hover:not(:disabled) { background: var(--primaria-hover); }
+.botao-gerar:active:not(:disabled) { transform: translateY(1px); }
+.botao-gerar:disabled {
+  background: var(--cinza-nevoa);
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* PAINEL OPÇÕES */
+.titulo-secao {
+  font-family: 'Philosopher', serif;
+  font-weight: 700;
+  font-size: 22px;
+  margin: 0 0 16px 0;
+  color: var(--texto-principal);
+}
+
+.grade-opcoes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) { .grade-opcoes { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .grade-opcoes { grid-template-columns: 1fr; } }
+
+.coluna { display: flex; flex-direction: column; gap: 24px; }
+
+.grupo {
+  background: var(--bg-card);
+  border: 1px solid var(--borda-suave);
+  border-radius: 4px;
+  padding: 12px 16px 16px;
+  margin: 0;
+}
+
+.grupo legend {
+  font-family: 'Philosopher', serif;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--texto-secundario);
+  padding: 0 8px;
+}
+
+/* Bloco de preset dentro da Distribuição */
+.bloco-preset {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--borda-suave);
+}
+
+.bloco-preset label {
+  font-family: 'Philosopher', serif;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--texto-secundario);
+}
+
+.bloco-preset select {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  padding: 4px 8px;
+  border: 1px solid var(--borda-suave);
+  border-radius: 3px;
+  background: var(--bg-pagina);
+  color: var(--texto-principal);
+}
+
+.indicador-personalizado {
+  font-size: 12px;
+  color: var(--acento-secundario);
+  font-style: italic;
+}
+
+/* Listas de checkboxes */
+.lista-checks { display: flex; flex-direction: column; gap: 4px; }
+
+/* Compacta especificamente a lista de ancestralidades pra alinhar
+   altura com a tabela de distribuição (que tem 18 linhas). */
+#lista-ancestralidades { gap: 2px; }
+#lista-ancestralidades label { padding: 2px 6px; }
+
+.lista-checks label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.lista-checks label:hover { background: var(--hover-extra-suave); }
+.lista-checks input[type="checkbox"] { accent-color: var(--primaria); cursor: pointer; }
+
+.lista-checks label:has(input:disabled) {
+  color: var(--texto-secundario);
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.todos-nenhum {
+  margin-top: 8px;
+  padding-top: 8px !important;
+  border-top: 1px dashed var(--borda-suave);
+  font-style: italic;
+  color: var(--texto-secundario);
+}
+
+/* Tabela de distribuição */
+.tabela-distribuicao { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+.tabela-distribuicao th {
+  font-family: 'Philosopher', serif;
+  font-weight: 700;
+  text-align: center;
+  padding: 4px 6px;
+  color: var(--texto-secundario);
+  font-size: 12px;
+}
+
+.tabela-distribuicao td { padding: 2px 4px; vertical-align: middle; }
+.tabela-distribuicao .nome-anc { padding-right: 8px; }
+.tabela-distribuicao .celula-input { text-align: center; width: 56px; }
+.tabela-distribuicao .celula-botao { width: 24px; text-align: center; }
+
+.input-percentual {
+  width: 48px;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  padding: 2px 4px;
+  border: 1px solid var(--borda-suave);
+  border-radius: 3px;
+  background: var(--bg-pagina);
+  color: var(--texto-principal);
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.input-percentual:focus { outline: 2px solid var(--foco-outline); outline-offset: -1px; }
+.input-percentual::-webkit-outer-spin-button,
+.input-percentual::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+.btn-passo {
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--borda-suave);
+  background: var(--bg-pagina);
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: var(--primaria);
+  line-height: 1;
+}
+
+.btn-passo:hover { background: var(--ceu-allavyn); color: white; }
+
+.rotulo-total {
+  text-align: right;
+  font-family: 'Philosopher', serif;
+  font-weight: 700;
+  padding-right: 12px !important;
+  padding-top: 8px !important;
+  color: var(--texto-secundario);
+}
+
+.valor-total {
+  text-align: center;
+  font-family: 'Philosopher', serif;
+  font-weight: 700;
+  color: var(--primaria);
+  padding-top: 8px !important;
+}

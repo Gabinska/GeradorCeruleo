@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerador Ceruleo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&family=Philosopher:wght@400;700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    // Aplica tema antes do CSS render pra evitar flash.
+    (function() {
+      try {
+        var salvo = localStorage.getItem('tema-ceruleo');
+        var prefereEscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var tema = (salvo === 'claro' || salvo === 'escuro')
+          ? salvo
+          : (prefereEscuro ? 'escuro' : 'claro');
+        document.documentElement.dataset.tema = tema;
+      } catch (e) {
+        document.documentElement.dataset.tema = 'claro';
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header class="cabecalho">
+    <h1 class="titulo-app">Gerador Ceruleo</h1>
+    <button type="button" id="btn-tema" class="botao-tema" aria-label="Alternar tema" title="Alternar tema claro/escuro">
+      <span class="toggle-bola"></span>
+    </button>
+  </header>
+
+  <main class="container">
+    <!-- CARD DE SAÍDA + BOTÃO -->
+    <section class="painel-saida">
+      <article class="card-npc" id="card-npc">
+        <div class="linha">
+          <span class="rotulo">Nome</span>
+          <span class="valor" data-campo="nome">—</span>
+          <button type="button" class="cadeado" data-campo="nome" aria-label="Travar Nome">🔓</button>
+        </div>
+        <div class="linha">
+          <span class="rotulo">Ancestralidade</span>
+          <span class="valor" data-campo="ancestralidade">—</span>
+          <button type="button" class="cadeado" data-campo="ancestralidade" aria-label="Travar Ancestralidade">🔓</button>
+        </div>
+        <div class="linha">
+          <span class="rotulo">Gênero</span>
+          <span class="valor" data-campo="genero">—</span>
+          <button type="button" class="cadeado" data-campo="genero" aria-label="Travar Gênero">🔓</button>
+        </div>
+        <div class="linha">
+          <span class="rotulo">Idade</span>
+          <span class="valor" data-campo="idade">—</span>
+          <button type="button" class="cadeado" data-campo="idade" aria-label="Travar Idade">🔓</button>
+        </div>
+        <div class="linha">
+          <span class="rotulo">Altura</span>
+          <span class="valor" data-campo="altura">—</span>
+          <button type="button" class="cadeado" data-campo="altura" aria-label="Travar Altura">🔓</button>
+        </div>
+        <div class="linha">
+          <span class="rotulo">Peso</span>
+          <span class="valor" data-campo="peso">—</span>
+          <button type="button" class="cadeado" data-campo="peso" aria-label="Travar Peso">🔓</button>
+        </div>
+        <div class="linha">
+          <span class="rotulo">Olhos</span>
+          <span class="valor" data-campo="olhos">—</span>
+          <button type="button" class="cadeado" data-campo="olhos" aria-label="Travar Olhos">🔓</button>
+        </div>
+        <div class="linha">
+          <span class="rotulo">Cabelo</span>
+          <span class="valor" data-campo="cabelo">—</span>
+          <button type="button" class="cadeado" data-campo="cabelo" aria-label="Travar Cabelo">🔓</button>
+        </div>
+        <div class="linha">
+          <span class="rotulo">Corpo</span>
+          <span class="valor" data-campo="corpo">—</span>
+          <button type="button" class="cadeado" data-campo="corpo" aria-label="Travar Corpo">🔓</button>
+        </div>
+        <div class="linha">
+          <span class="rotulo">Outros</span>
+          <span class="valor" data-campo="outros">—</span>
+          <button type="button" class="cadeado" data-campo="outros" aria-label="Travar Outros">🔓</button>
+        </div>
+      </article>
+      <button id="btn-gerar" class="botao-gerar">Gerar</button>
+    </section>
+
+    <!-- OPÇÕES -->
+    <section class="painel-opcoes">
+      <h2 class="titulo-secao">Opções</h2>
+
+      <div class="grade-opcoes">
+        <!-- Coluna 1: Distribuição (com Província no topo) -->
+        <div class="coluna">
+          <fieldset class="grupo">
+            <legend>Distribuição</legend>
+            <div class="bloco-preset">
+              <label for="select-provincia">Província</label>
+              <select id="select-provincia"><option value="">(Selecionar)</option></select>
+              <div class="indicador-personalizado" id="indicador-personalizado" hidden>(personalizado)</div>
+            </div>
+            <table class="tabela-distribuicao" id="tabela-distribuicao">
+              <thead>
+                <tr><th></th><th></th><th>%</th><th></th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </fieldset>
+        </div>
+
+        <!-- Coluna 2: Ancestralidade -->
+        <div class="coluna">
+          <fieldset class="grupo">
+            <legend>Ancestralidade</legend>
+            <div class="lista-checks" id="lista-ancestralidades"></div>
+          </fieldset>
+        </div>
+
+        <!-- Coluna 3: Gênero + Faixa Etária + Tamanho do Nome -->
+        <div class="coluna">
+          <fieldset class="grupo">
+            <legend>Gênero</legend>
+            <div class="lista-checks" id="lista-genero">
+              <label><input type="checkbox" value="masculino" checked /> Masculino</label>
+              <label><input type="checkbox" value="feminino" checked /> Feminino</label>
+              <label><input type="checkbox" value="neutro" checked /> Neutro</label>
+              <label class="todos-nenhum"><input type="checkbox" data-todos checked /> Todos/Nenhum</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="grupo">
+            <legend>Faixa Etária</legend>
+            <div class="lista-checks" id="lista-faixa-etaria">
+              <label><input type="checkbox" value="crianca" checked /> Criança</label>
+              <label><input type="checkbox" value="adulto" checked /> Adulto</label>
+              <label><input type="checkbox" value="maduro" checked /> Maduro</label>
+              <label><input type="checkbox" value="idoso" checked /> Idoso</label>
+              <label class="todos-nenhum"><input type="checkbox" data-todos checked /> Todos/Nenhum</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="grupo">
+            <legend>Tamanho do Nome</legend>
+            <table class="tabela-distribuicao tabela-tamanho-nome">
+              <tbody>
+                <tr>
+                  <td class="nome-anc">Min</td>
+                  <td class="celula-botao">
+                    <button type="button" class="btn-passo" data-tamanho="min" data-direcao="-1">−</button>
+                  </td>
+                  <td class="celula-input">
+                    <input type="number" id="input-min-letras" class="input-percentual" value="3" min="3" max="13" />
+                  </td>
+                  <td class="celula-botao">
+                    <button type="button" class="btn-passo" data-tamanho="min" data-direcao="1">+</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="nome-anc">Max</td>
+                  <td class="celula-botao">
+                    <button type="button" class="btn-passo" data-tamanho="max" data-direcao="-1">−</button>
+                  </td>
+                  <td class="celula-input">
+                    <input type="number" id="input-max-letras" class="input-percentual" value="12" min="3" max="13" />
+                  </td>
+                  <td class="celula-botao">
+                    <button type="button" class="btn-passo" data-tamanho="max" data-direcao="1">+</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

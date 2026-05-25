@@ -1,0 +1,20 @@
+# Dataset original (10 GB, baixável de novo de # https://github.com/philipperemy/name-dataset)
+treinarMarkov/names/
+
+# Saída de revisão do pré-processador
+treinarMarkov/amostras.txt
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

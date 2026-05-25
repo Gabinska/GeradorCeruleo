@@ -1,0 +1,54 @@
+{
+  "provincias": [
+    {
+      "id": "cerulea_norte",
+      "nome": "Cerulea do Norte",
+      "distribuicao": {
+        "clank": 1, "drakona": 1, "anao": 8, "elfo": 3, "fada": 6, "fauno": 3,
+        "firbolg": 2, "fungril": 1, "galapa": 3, "gigante": 1, "goblin": 2,
+        "halfling": 9, "humano": 15, "infernis": 6, "katari": 4, "orc": 3,
+        "ribbet": 3, "simiah": 4, "hibrido": 25
+      }
+    },
+    {
+      "id": "empodia",
+      "nome": "Empódia",
+      "distribuicao": {
+        "clank": 4, "drakona": 6, "anao": 8, "elfo": 1, "fada": 1, "fauno": 3,
+        "firbolg": 2, "fungril": 4, "galapa": 2, "gigante": 2, "goblin": 1,
+        "halfling": 5, "humano": 9, "infernis": 5, "katari": 5, "orc": 2,
+        "ribbet": 2, "simiah": 3, "hibrido": 35
+      }
+    },
+    {
+      "id": "dakry",
+      "nome": "Dákry",
+      "distribuicao": {
+        "clank": 0, "drakona": 0, "anao": 10, "elfo": 6, "fada": 8, "fauno": 1,
+        "firbolg": 1, "fungril": 0, "galapa": 4, "gigante": 0, "goblin": 0,
+        "halfling": 12, "humano": 30, "infernis": 1, "katari": 1, "orc": 0,
+        "ribbet": 5, "simiah": 1, "hibrido": 20
+      }
+    },
+    {
+      "id": "correntes",
+      "nome": "Ilha das Correntes",
+      "distribuicao": {
+        "clank": 1, "drakona": 9, "anao": 1, "elfo": 0, "fada": 1, "fauno": 9,
+        "firbolg": 6, "fungril": 4, "galapa": 8, "gigante": 2, "goblin": 9,
+        "halfling": 3, "humano": 4, "infernis": 2, "katari": 1, "orc": 6,
+        "ribbet": 4, "simiah": 5, "hibrido": 25
+      }
+    },
+    {
+      "id": "cerulea_sul",
+      "nome": "Cerulea do Sul",
+      "distribuicao": {
+        "clank": 10, "drakona": 2, "anao": 4, "elfo": 2, "fada": 3, "fauno": 3,
+        "firbolg": 2, "fungril": 2, "galapa": 2, "gigante": 5, "goblin": 6,
+        "halfling": 4, "humano": 10, "infernis": 4, "katari": 3, "orc": 3,
+        "ribbet": 2, "simiah": 3, "hibrido": 30
+      }
+    }
+  ]
+}
