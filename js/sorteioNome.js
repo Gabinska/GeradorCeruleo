@@ -74,39 +74,39 @@ function capitalize(s) {
  *                                   'cerulea_sul', 'dakry')
  * @param {string} opts.genero     - 'M' | 'F' | 'N'
  * @param {number} [opts.minLetras=3]
- * @param {number} [opts.maxLetras=12]
+ * @param {number} [opts.maxLetras=13]
  * @param {number} [opts.tentativas=50]
- * @returns {{ nome: string, cultura: string } | null}
+ * @returns {{ nome: string, regiao: string } | null}
  */
 export function gerarNome({
   provincia,
   genero,
   minLetras = 3,
-  maxLetras = 12,
+  maxLetras = 13,
   tentativas = 50,
 }) {
   if (!modelo) {
     throw new Error('Modelo não carregado. Chame carregarModelo() primeiro.');
   }
 
-  const pesosCulturas = modelo.provincias[provincia];
-  if (!pesosCulturas) {
+  const pesosRegioes = modelo.provincias[provincia];
+  if (!pesosRegioes) {
     throw new Error(`Província desconhecida: ${provincia}`);
   }
 
-  // Filtra culturas que efetivamente têm modelo carregado
-  // (caso algum país tenha dado vazio no pré-processamento).
+  // Filtra regiões que efetivamente têm modelo carregado
+  // (caso alguma região tenha dado vazio no pré-processamento).
   const pesosValidos = {};
-  for (const [pais, peso] of Object.entries(pesosCulturas)) {
-    if (modelo.modelos[pais]) {
-      pesosValidos[pais] = peso;
+  for (const [regiao, peso] of Object.entries(pesosRegioes)) {
+    if (modelo.modelos[regiao]) {
+      pesosValidos[regiao] = peso;
     }
   }
 
-  const cultura = sortearPonderado(pesosValidos);
-  if (!cultura) return null;
+  const regiao = sortearPonderado(pesosValidos);
+  if (!regiao) return null;
 
-  const tabela = modelo.modelos[cultura]?.[genero];
+  const tabela = modelo.modelos[regiao]?.[genero];
   if (!tabela || Object.keys(tabela).length === 0) return null;
 
   // Rejection sampling de tamanho.
@@ -115,10 +115,10 @@ export function gerarNome({
     const nome = gerarViaMarkov(tabela, modelo.ordem);
     ultimo = nome;
     if (nome.length >= minLetras && nome.length <= maxLetras) {
-      return { nome: capitalize(nome), cultura };
+      return { nome: capitalize(nome), regiao };
     }
   }
-  return ultimo ? { nome: capitalize(ultimo), cultura } : null;
+  return ultimo ? { nome: capitalize(ultimo), regiao } : null;
 }
 
 /** Lista os ids das províncias disponíveis no modelo. */

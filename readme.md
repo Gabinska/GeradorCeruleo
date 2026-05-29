@@ -33,60 +33,52 @@ js/sorteioNome.js                motor Markov de geração de nomes
 
 data/ancestralidades.json
 data/provincias.json
-data/nomes-markov.json           modelo Markov pré-treinado (~11 MB)
+data/nomes-markov.json           modelo Markov pré-treinado (~5 MB)
 
-treinarMarkov/                   ferramentas de regeneração do modelo
-  preprocessar_nomes.py          script de treinamento
-  names/                         dataset philipperemy (NÃO versionado)
+treinarMarkov/                   ferramentas de treinamento do modelo
+  names.csv                      base consolidada (~89k nomes,
+                                 18 regiões ativas + 5 guardadas)
+  names_dataset.md               documentação do dataset
+                                 (fontes, decisões de mapeamento)
+  preprocessar_nomes.py          script de treino do Markov
   amostras.txt                   preview gerado (NÃO versionado)
 ```
 
 ## Motor de nomes
 
 Os nomes são gerados por um modelo Markov de caracteres (ordem 3)
-treinado em nomes reais de pessoas, segmentado por cultura e
-gênero. Cada província sorteia entre os países que a inspiram:
+treinado em nomes reais de pessoas, segmentado por **região cultural**
+e gênero. Cada província sorteia entre regiões que a inspiram, com
+pesos diferentes:
 
 ```
-Empódia            JP KR CN ID KH PH TW       (Extremo Oriente)
-Cerulea do Norte   DE GB FR SE PL IE          (Europa)
-Ilha das Correntes NG AO ET ZA BR ES IT       (África + Mediterrâneo)
-Cerulea do Sul     SA IR TR MA DZ             (Oriente Médio + Magreb)
-Dákry              GR BG RU                   (Greco-Eslavo)
+EMPÓDIA              leste_asiatico    70
+                     sudeste_asiatico  30
+
+CERULEA DO NORTE     ilhas_britanicas  25
+                     germanica         20
+                     nordica           20
+                     franca            15
+                     fenico_baltico     8
+                     eslava_ocidental   7
+                     magyar             5
+
+ILHA DAS CORRENTES   iberica           55
+                     africa_subsaariana 45
+
+CERULEA DO SUL       arabe_persa       65
+                     turca             35
+
+DÁKRY                balca_eslava      25
+                     helenica          25
+                     balca_oriental    20
+                     romana            15
+                     hebraica          15
 ```
+
+Além das 18 regiões usadas pelas províncias, o modelo também treina 5
+regiões "guardadas" (`sul_asiatico`, `caucaso`, `polinesica`,
+`nativo_americano`, `mesoamericana`) — sem província correspondente,
+mas disponíveis no JSON pra uso futuro.
 
 O modelo já vem pré-treinado em `data/nomes-markov.json`.
-**Não é necessário rodar o script Python para usar o app.**
-
-### Regenerando o modelo
-
-Só é necessário se você quiser mexer nos pesos das províncias,
-trocar países ou ajustar filtros.
-
-1. Baixe o dataset
-   [philipperemy/name-dataset](https://github.com/philipperemy/name-dataset)
-   (~10 GB descompactado, MIT)
-
-2. Coloque os CSVs em `treinarMarkov/names/`
-
-3. Edite `treinarMarkov/preprocessar_nomes.py` se quiser ajustar
-   configurações (PROVINCIAS, LIMITE_POR_PAIS, ORDEM, etc.)
-
-4. Rode a partir da pasta `treinarMarkov/`:
-
-   ```
-   cd treinarMarkov
-   python preprocessar_nomes.py
-   ```
-
-5. O script regrava `data/nomes-markov.json` e gera
-   `treinarMarkov/amostras.txt` (preview pra revisão).
-
-A subpasta `names/` e o `amostras.txt` ficam no `.gitignore` —
-só o script Python é versionado.
-
-## Crédito de dados
-
-Nomes treinados em
-[philipperemy/name-dataset](https://github.com/philipperemy/name-dataset)
-(MIT).

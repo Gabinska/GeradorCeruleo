@@ -22,7 +22,6 @@ const NOMES_FAIXA = {
   idoso: 'idoso'
 };
 
-// Mapeamento gênero da UI → código do modelo Markov
 const GENERO_PARA_MARKOV = {
   masculino: 'M',
   feminino: 'F',
@@ -370,7 +369,7 @@ function atualizarIconeTema() {
 // ===== Bloco Tamanho do Nome =====
 
 const TAMANHO_MIN_ABS = 3;
-const TAMANHO_MAX_ABS = 13;
+const TAMANHO_MAX_ABS = 12;
 
 function clampTamanho(valor, fallback) {
   if (!Number.isFinite(valor)) valor = fallback;
