@@ -3,21 +3,6 @@
 Gerador de NPCs para o cenário de RPG **Cerulea**, sistema Daggerheart.
 Ferramenta de mestre, sem servidor — roda inteiramente no browser.
 
-## Como rodar localmente
-
-A página usa `fetch()` para carregar JSON, então abrir `index.html`
-direto pelo Explorador não funciona (bloqueio CORS de `file://`).
-
-No VS Code, instale a extensão **Live Server**
-(ritwickdey.LiveServer), clique com o botão direito no `index.html` e
-escolha "Open with Live Server".
-
-## Como publicar
-
-Push para a branch `main`. GitHub Pages serve a partir da raiz.
-
-URL pública: https://gabinska.github.io/GeradorCeruleo/
-
 ## Estrutura
 
 ```
@@ -46,10 +31,7 @@ treinarMarkov/                   ferramentas de treinamento do modelo
 
 ## Motor de nomes
 
-Os nomes são gerados por um modelo Markov de caracteres (ordem 3)
-treinado em nomes reais de pessoas, segmentado por **região cultural**
-e gênero. Cada província sorteia entre regiões que a inspiram, com
-pesos diferentes:
+Os nomes são gerados por um modelo Markov de caracteres (ordem 3) treinado em nomes reais de pessoas, segmentado por **região cultural** e gênero. Cada província sorteia entre regiões que a inspiram, com pesos diferentes:
 
 ```
 EMPÓDIA              leste_asiatico    70
@@ -76,9 +58,6 @@ DÁKRY                balca_eslava      25
                      hebraica          15
 ```
 
-Além das 18 regiões usadas pelas províncias, o modelo também treina 5
-regiões "guardadas" (`sul_asiatico`, `caucaso`, `polinesica`,
-`nativo_americano`, `mesoamericana`) — sem província correspondente,
-mas disponíveis no JSON pra uso futuro.
+Além das 18 regiões usadas pelas províncias, o modelo também treina 5 regiões "guardadas" (`sul_asiatico`, `caucaso`, `polinesica`, `nativo_americano`, `mesoamericana`) — sem província correspondente, mas disponíveis no JSON pra uso futuro.
 
 O modelo já vem pré-treinado em `data/nomes-markov.json`.
